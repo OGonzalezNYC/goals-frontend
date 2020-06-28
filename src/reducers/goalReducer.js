@@ -1,7 +1,11 @@
 
-export default function goalReducer(state = {goals: []}, action) {
-
-  return action.payload;
-  //this is just to see that the action is coming in correctly, and that the store can be properly updated by the reducer.
-
+export default function goalReducer(state = {goals: []}, action) { //export so index.js can access it. (App is a child of index.js).
+  switch (action.type) {
+    case 'FETCH_GOALS':
+      return {
+        goals: action.payload
+      }
+    default:
+      return state
+  }
 }
