@@ -9,9 +9,9 @@ import thunk from 'redux-thunk';
 //for asynchronous requests.
 
 import { Provider } from 'react-redux';
-// so any component wrapped in Provider will have access to the (redux) store
+// Any component wrapped in Provider (or whose parent is wrapped in Provider) will have access to the (redux) store.
 
-import goalReducer from './reducers/goalReducer';
+import goalReducer from './reducers/goalReducer';  //no "{}" necessary because, unlike fetchGoals, goalReducer DEFAULT-exports itself rather than PLAIN-exporting itself.
 
 
 import App from './App';
@@ -19,12 +19,11 @@ import App from './App';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
-//store is where I store my data globally. reducer receives actions that I send it; and, based on that action, the reducer returns a new version of the store.
-
 //set up the store:
 let store = createStore(goalReducer, composeEnhancers(applyMiddleware(thunk)));
+//store is where I store my data globally. The reducer receives actions that I send it; and, based on that action, the reducer returns a new version of the store.
 
-//Wrapping the App in Provider, below enables the App and any child component of the App to have access to the store, which will need to be passed into the Provider as store. (BTW, it could just as easily be "let myStore" and store={myStore}).
+//Wrapping the App in Provider, below enables the App and any descendant component of the App to have access to the store, which will need to be passed into the Provider as store. (BTW, it could just as easily be "let myStore" (above) and store={myStore}).
 ReactDOM.render(
   <Provider store={store}>
     <App />

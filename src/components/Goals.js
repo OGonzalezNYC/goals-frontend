@@ -1,7 +1,7 @@
 import React from 'react';
 
-//This component can just be functional rather than a class, since it's just going to present a list of Goals.
-//With a class component, if props are being passed, one can access a prop through this.props.  With a functional component, one needs to provide an argument, in this case, "props":
+//This component can just be functional rather than a class, since it's just going to present a list of Goals. (A functional component is basically just a function.)
+//Props are being provided to Goals from parent GoalsContainer. With a class component, if props are being passed, one can access a prop through "this.props.goals".  With a functional component: one needs to provide an ARGUMENT, in this case, "props"; (alternatively, deconstruction, e.g., "{goals}", can be used to pass in an individual prop; and if there were another prop, say, "X", it could be "{goals, X}").
  const Goals = (props) => {
 //no render is needed inside a functional component.
   return (
