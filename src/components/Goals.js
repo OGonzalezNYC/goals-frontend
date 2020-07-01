@@ -6,9 +6,10 @@ import React from 'react';
 //no render is needed inside a functional component.
   return (
     <div>
-      {props.goals.map(goal => <li key={goal.id}>{goal.mission} | {goal.deadline} | {goal.outcome}</li>)}
+      {props.goals.map(goal => <li key={goal.id}>{goal.mission} | {goal.outcome}</li>)}
     </div>
   )
  }
 
  export default Goals
+// {props.goals.map(goal => <li key={goal.id}>{goal.mission} | {goal.deadline} | {goal.outcome}</li>)}

@@ -5,6 +5,10 @@ export default function goalReducer(state = {goals: []}, action) { //export so i
       return {
         goals: action.payload
       }
+    case 'ADD_GOAL':
+      return {
+        ...state, goals: [...state.goals, action.payload]
+      }
     default:
       return state
   }
