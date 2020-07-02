@@ -13,7 +13,8 @@ export const addGoal = (data) => { // "data" will becoming from GoalInput STATE.
       body: JSON.stringify(data)
     })
     .then(response => response.json())
-    .then(jsonizedResponse => dispatch({type: 'ADD_GOAL', payload: data}))
+    //.then(jsonizedResponse => console.log(jsonizedResponse))//CHECK
+    .then(jsonizedResponse => dispatch({type: 'ADD_GOAL', payload: jsonizedResponse}))
   }
 
 }
