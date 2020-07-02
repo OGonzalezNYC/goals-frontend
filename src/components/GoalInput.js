@@ -7,7 +7,10 @@ class GoalInput extends React.Component {
   //constructor() can be used, but isn't necessary.
   //You technically aren't supposed to use null for an empty value.
   // state = {mission: '', deadline: Date.now(), outcome: "Get after it!"}
-  state = {mission: '', outcome: "Get after it!"}
+  state = {
+    mission: '',
+    outcome: "Get after it!"
+  }
 
   handleChange = (event) => {
 //debugger;
@@ -20,7 +23,10 @@ class GoalInput extends React.Component {
     event.preventDefault()
     //the form data needs to get sent to the backend. The first requirement for that is an ACTION. So there needs to be an ACTION CREATOR here.
     this.props.addGoal(this.state)
-
+    this.setState({
+      mission: '',
+      outcome: "Get after it!"
+    })
   }
 
   render() {

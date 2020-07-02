@@ -11,6 +11,8 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 // Any component wrapped in Provider (or whose parent is wrapped in Provider) will have access to the (redux) store.
 
+import {BrowserRouter as Router} from 'react-router-dom';//"as Router" allows me to refer to it as "Router"//Also, having included 'react-router-dom' in my package.json file also automatically brought in "react-router".
+
 import goalReducer from './reducers/goalReducer';  //no "{}" necessary because, unlike fetchGoals, goalReducer DEFAULT-exports itself rather than PLAIN-exporting itself.
 
 
@@ -26,7 +28,9 @@ let store = createStore(goalReducer, composeEnhancers(applyMiddleware(thunk)));
 //Wrapping the App in Provider, below enables the App and any descendant component of the App to have access to the store, which will need to be passed into the Provider as store. (BTW, it could just as easily be "let myStore" (above) and store={myStore}).
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    <Router>
+      <App />
+    </Router>
   </Provider>,
   document.getElementById('root')
 );
