@@ -8,6 +8,7 @@ import {fetchGoals} from '../actions/fetchGoals'; //"{}" because, unlike goalRed
 
 import Goals from '../components/Goals'; //I think the reason for the ".." is because the imports are coming from a different sub-folder.
 
+import Goal from '../components/Goal';
 import GoalInput from '../components/GoalInput';
 
 
@@ -20,19 +21,19 @@ class GoalsContainer extends React.Component {
   }
 
   //the one thing a class component must have is a render
+  //a render() must have a return.
+  //In order for the Goals component to have access to the goals that mapStateToProps below is obtaining from state, the Goals component is endowed with a prop of "goals".
   render() {
-
-    //a render() must have a return.
-    //In order for the Goals component to have access to the goals that mapStateToProps below is obtaining from state, the Goals component is endowed with a prop of "goals".
     return (
       <div>
-        <Route path='/goals/new' component={GoalInput}/> 
-        <GoalInput/>
-
-        <Goals goals={this.props.goals}/>
+        <Route path='/goals/new' component={GoalInput}/>
+        <Route path='/goals/:id' render={(routerProps) => <Goal {...routerProps} goals={this.props.goals} />} />
+        <Route exact path='/goals' render={(routerProps) => <Goals {...routerProps} goals={this.props.goals} />} />
       </div>
     )
-  }
+  }//The only reason why you wouldn't want "exact path" is for nesting purposes.
+  //The above three Routes do not render the components directly; they are CONDITIONALLY redered based on the url, which is why none of these components are visible without goin to the corresponding Route.
+  //routerProps includes a key called 'match', within which is a key called 'params', within which will be key caled 'id' because of how I've included 'id' in the path.
 
 }
 

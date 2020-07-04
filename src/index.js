@@ -11,7 +11,9 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 // Any component wrapped in Provider (or whose parent is wrapped in Provider) will have access to the (redux) store.
 
-import {BrowserRouter as Router} from 'react-router-dom';//"as Router" allows me to refer to it as "Router"//Also, having included 'react-router-dom' in my package.json file also automatically brought in "react-router".
+import {BrowserRouter as Router} from 'react-router-dom';//"as Router" allows me to refer to it as "Router"//Also, having included 'react-router-dom' in my package.json file also automatically brought in "react-router"; it's all the same features as "react-router", plus some additional ones. Router allows me to set up routes that are associated with specific components; so that way, when a user navigates to a certain route, the user will only see that/those specific component(s).
+
+//grants access to model instances, such as individual goals.
 
 import goalReducer from './reducers/goalReducer';  //no "{}" necessary because, unlike fetchGoals, goalReducer DEFAULT-exports itself rather than PLAIN-exporting itself.
 
