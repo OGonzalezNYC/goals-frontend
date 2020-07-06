@@ -13,11 +13,14 @@ export function fetchGoals() {
     })
     //no actual need to specify "method: 'GET'", as GET is the default method for a fetch() request.
     .then(response => response.json())
-    .then(jsonizedResponse => dispatch(
+    //.then(jsonizedResponse => console.log('NOW', jsonizedResponse) CHECK
+    .then(jsonizedGoals => dispatch(
+
       {//this is the ACTION object that is getting dispatch()ed.
       type: 'FETCH_GOALS',// DISPATCH requires that the object it dispatch()es have a key of "type".
-      payload: jsonizedResponse
+      payload: jsonizedGoals
       }
+
     ))
   }
 }

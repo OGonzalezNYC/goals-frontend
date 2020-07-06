@@ -29,7 +29,7 @@ class GoalsContainer extends React.Component {
         <Switch>
           <Route path='/goals/new' component={GoalInput}/>
           <Route path='/goals/:id' render={(routerProps) => <Goal {...routerProps} goals={this.props.goals} />} />
-          <Route exact path='/goals' render={(routerProps) => <Goals {...routerProps} goals={this.props.goals} />} />
+          <Route exact path='/goals' render={(routerProps) => <Goals {...routerProps}  goals={this.props.goals} />} />
         </Switch>
       </div>
     )

@@ -1,6 +1,6 @@
 import React from 'react';
-//import {connect} from 'react-redux';
-//import {addStep} from '../actions/addStep'
+import {connect} from 'react-redux';
+import {addStep} from '../actions/addStep'
 
 class StepInput extends React.Component {
   //constructor() can be used, but isn't necessary.
@@ -29,11 +29,46 @@ class StepInput extends React.Component {
   //   })
   // }
 
+//For the sake of ease and simplicity, the keys of state should be identical to the backend attributes.
+  state = {
+    statement: "",
+    direction: "backwards" //without a default value, one could inadvertently submit an empty string even if it doesn't look empty in the browser. I guess that's because ONCHANGE is triggered only by a, well, CHANGE. Perhaps I should change that by adding a PLACEHOLDER, and preventing a DISPATCH if the value is an empty string.
+  }
+
+//Later on, copy from GoalInput.
+//To make this a controlled form, each input tag must have a name (identical to the corresponding state key) and a value; and the value needs to be stored in either the Redux store, or the component's state.
+
+  handleChange = (event) => {
+
+    //the simplest way is to abstract it out with "[event.target.name]", with "name" being a reference to the "name" attribute of the input tags in render(), down below.
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    this.props.addStep(this.state, this.props.goal.id)//this.props.id is the GOAL id (or is it the goalId ?).
+    this.setState({
+      statement: "",
+      direction: "backwards"
+    })
+  }
+
 
   render() {
     return (
       <div>
-        StepInput
+        <form onSubmit={this.handleSubmit}>
+          <label>Step:</label>
+          <input type="text" name="statement" value={this.state.statement} onChange={this.handleChange}/>
+          <label>Direction:</label>
+          <select name="direction" value={this.state.direction} onChange={this.handleChange}>
+              <option>forward</option>
+              <option>backwards</option>
+          </select>
+          <input type="submit"/>
+        </form>
       </div>
     )
   }
@@ -54,4 +89,5 @@ class StepInput extends React.Component {
 }
 
 //export default connect(null, {addStep})(StepInput)
-export default StepInput
+export default connect(null, {addStep})(StepInput)
+//no need for mapStateToProps, since any props it needs are handed down to it from its parent component, StepsContainer; hence, "null".
