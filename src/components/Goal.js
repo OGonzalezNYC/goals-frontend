@@ -6,6 +6,9 @@ import React from 'react';
 import {Redirect} from 'react-router-dom';
 
 import StepsContainer from '../containers/StepsContainer';
+
+import GoalEdit from './GoalEdit'
+
 const Goal = (props) => {
   console.log('INSIDE', props)
   console.log(props)//Why does this component automatically render twice?
@@ -22,6 +25,9 @@ const Goal = (props) => {
         {goal ? goal.mission : null} {goal ? '|' : null} {goal ? goal.outcome : null}
       </h2>
       <StepsContainer goal={goal}/>
+
+      <GoalEdit goal={goal}/>
+
     </div>
   )
 
