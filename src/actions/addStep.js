@@ -13,9 +13,20 @@ export const addStep = (step, goalId) => { // "data" will becoming from StepInpu
       body: JSON.stringify(step)
     })
     .then(response => response.json())
-    //.then(jsonizedResponse => console.log(jsonizedResponse))//CHECK
-    .then(jsonizedGoal => dispatch({type: 'ADD_STEP', payload: jsonizedGoal}))
-    //.then(jsonizedStep => dispatch({type: 'ADD_STEP', payload: jsonizedStep}))
+
+    // //.then(jsonizedResponse => console.log(jsonizedResponse))//CHECK
+    // .then(jsonizedGoal => dispatch({type: 'ADD_STEP', payload: jsonizedGoal}))
+    // //.then(jsonizedStep => dispatch({type: 'ADD_STEP', payload: jsonizedStep}))
+
+    .then(jsonizedGoal => {
+        if (jsonizedGoal.error) {
+          alert("Be sure to describe both the step and its direction.")
+        } else {
+          dispatch({type: 'ADD_STEP', payload: jsonizedGoal})
+        }
+      //dispatch({type: 'ADD_STEP', payload: jsonizedGoal})
+    })
+
   }
 
 }
