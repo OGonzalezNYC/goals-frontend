@@ -7,22 +7,34 @@ import {connect} from 'react-redux';
 
 import GoalsContainer from './containers/GoalsContainer';
 
-class App extends React.Component {
-//App component CAN be a container component.
-  //componentDidMount() {
 
-
-
-
-    render() {
-      return (
-        <div className="App">
-          <GoalsContainer/>
-        </div>
-      )
-    }
-//  }
+function App() {
+  return (
+    <div className="App">
+      <GoalsContainer/>
+    </div>
+  )
 }
+
+
+
+
+// class App extends React.Component {
+// //App component CAN be a container component.
+//   //componentDidMount() {
+//
+//
+//
+//
+//     render() {
+//       return (
+//         <div className="App">
+//           <GoalsContainer/>
+//         </div>
+//       )
+//     }
+// //  }
+// }
 
 
 
