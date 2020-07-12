@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {addGoal} from '../actions/addGoal'
+import {Route, Link} from 'react-router-dom';
 
 //This component is a form, so it needs to have state, so it needs to be a class.
 class GoalInput extends React.Component {
@@ -43,11 +44,14 @@ class GoalInput extends React.Component {
           <label>Status:</label><br></br>
           <input type="text" placeholder="outcome" value={this.state.outcome} onChange={this.handleChange} name="outcome"/><br></br><br></br>
           <input type="submit"/>
-        </form><br></br>
+        </form>
       </div>
     )
   }
+  //   <br></br>
+  // <Link to={'/goals'}>Goals</Link>
 }
+
 
 export default connect(null, {addGoal})(GoalInput)
 // render() {

@@ -24,8 +24,11 @@ const Goals = (props) => {
           <Link to={`/goals/${goal.id}`}>{goal.mission}</Link><button onClick={() => deleteGoal(goal)}>Delete Goal</button>
         </li>
       )}
+      <br></br>
+
     </div>
   )
+    // <Link to={'/goals/new'}>New Goal</Link>
 }
 
 
