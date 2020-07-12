@@ -1,7 +1,7 @@
 import React from 'react';
 //import logo from './logo.svg';
 //import './App.css';
-
+import {Route, Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 //this gives the App component the ability to access the store.
 
@@ -11,6 +11,10 @@ import GoalsContainer from './containers/GoalsContainer';
 function App() {
   return (
     <div className="App">
+      <Link to={'/goals'}>Goals</Link>
+      <br></br>
+      <br></br>
+      <Link to={'/goals/new'}>New Goal</Link><br></br><br></br>
       <GoalsContainer/>
     </div>
   )

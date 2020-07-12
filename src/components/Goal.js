@@ -6,7 +6,7 @@ import React from 'react';
 import {connect} from 'react-redux';
 
 import {Route, Redirect} from 'react-router-dom';
-
+import {Link} from 'react-router-dom';
 import StepsContainer from '../containers/StepsContainer';
 
 import GoalEdit from './GoalEdit'
@@ -54,7 +54,11 @@ const Goal = (props) => {
 
     </div>
   )
-
+  // <br></br>
+  // <Link to={'/goals'}>Goals</Link>
+  // <br></br>
+  // <br></br>
+  // <Link to={'/goals/new'}>New Goal</Link>
 
 }
 
