@@ -3,11 +3,15 @@
 import React from 'react';
 //this component needs access to an account, so it needs props, which, in this case, could just as easily be {goal}
 
-import {Redirect} from 'react-router-dom';
+import {connect} from 'react-redux';
+
+import {Route, Redirect} from 'react-router-dom';
 
 import StepsContainer from '../containers/StepsContainer';
 
 import GoalEdit from './GoalEdit'
+
+import {deleteGoal} from '../actions/deleteGoal';
 
 const Goal = (props) => {
   console.log('INSIDE', props)
@@ -18,15 +22,35 @@ const Goal = (props) => {
 
   let goal = props.goals.filter(goal => goal.id == props.match.params.id)[0] //Double "=" instead of triple "=" because one is a string and the other's an integer.  Instead of using filter() (which returns an array) and then needing to use "[0]", would simply using find() be a bit more efficient?
 
+//   const deleteGoal = (goal) => {
+// //debugger;
+//     console.log('Right here', goal.id)
+//     props.deleteGoal(goal.id)
+//     //I need to make the page Redirect to "/goals" here.
+//     <Redirect from="goals/:goal.id" to="goals"/>
+//   }
+
+
   //the first time that the props are coming through, this component does not yet have the GOALS. But it then automatically re-renders, this time in possession of the GOALS; hence, the need for the above ternary. But WHY does this component automatically render twice?
   return (
     <div>
+      <h1>
+        GOAL:
+      </h1>
       <h2>
-        {goal ? goal.mission : null} {goal ? '|' : null} {goal ? goal.outcome : null}
+        {goal ? goal.mission : null}
       </h2>
-      <StepsContainer goal={goal}/>
+      <h1>
+        {goal ? 'STATUS:' : null}
+      </h1>
+      <h2>
+        {goal ? goal.outcome : null}
+      </h2>
 
       <GoalEdit goal={goal}/>
+
+      <StepsContainer goal={goal}/>
+
 
     </div>
   )
@@ -37,3 +61,4 @@ const Goal = (props) => {
 
 
 export default Goal
+//export default connect(null, {deleteGoal})(Goal)
