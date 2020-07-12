@@ -22,11 +22,16 @@ class GoalInput extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     //the form data needs to get sent to the backend. The first requirement for that is an ACTION. So there needs to be an ACTION CREATOR here.
-    this.props.addGoal(this.state) //PROBABLY REUSE THIS FORM FOR EDITING GOAL. Add a condition to see whether ADDING or EDITING.
-    this.setState({
-      mission: '',
-      outcome: "Get after it!"
-    })
+
+    if (this.state.mission) {
+      this.props.addGoal(this.state) //PROBABLY REUSE THIS FORM FOR EDITING GOAL. Add a condition to see whether ADDING or EDITING.
+      this.setState({
+        mission: '',
+        outcome: "Get after it!"
+      })
+    } else {
+      alert("Describe your goal.")
+    }
   }
 
   render() {

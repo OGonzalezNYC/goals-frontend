@@ -19,16 +19,18 @@ const Steps = (props) => {
 
   return (
     <div>
-      {props.steps && props.steps.map(step => <li key={step.id}>
+      {
+        props.steps && props.steps.map(step => <Step key={step.id} step={step} deleteStep={() => handleDelete(step)} />)
 
-        <Step step={step} />
-        
 
-        <button onClick={() => handleDelete(step)}>Delete</button></li>)}
+      }
     </div>
   )
 
-  //{props.steps && props.steps.map(step => <li key={step.id}>{step.statement} | {step.direction} <button onClick={() => handleDelete(step)}>Delete</button></li>)}
+  // props.steps && props.steps.map(step => <li key={step.id}>
+  // <Step step={step} />
+  // <button onClick={() => handleDelete(step)}>Delete</button>
+  // </li>)
 
 
 

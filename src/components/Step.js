@@ -1,13 +1,16 @@
 import React from 'react';
 
-import {Redirect} from 'react-router-dom';
+//import {Redirect} from 'react-router-dom'; //As I suspected, this line is unnecessary.
 
-const Step = ({step}) => {
+const Step = ({step, deleteStep}) => {
 
   return (
-    <div key={step.id}>STEP: {step.statement}  DIRECTION: {step.direction} </div>
+    <li key={step.id}>STEP: {step.statement}  DIRECTION: {step.direction} <button onClick={deleteStep}>Delete</button></li>
   )
 
 }
+
+
+// <div key={step.id}>STEP: {step.statement}  DIRECTION: {step.direction} </div>
 
 export default Step
