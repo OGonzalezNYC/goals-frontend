@@ -2,6 +2,8 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {deleteStep} from '../actions/deleteStep';
 
+import Step from './Step'
+
 //def should be functional, as it needs to receive props.
 const Steps = (props) => {
 //debugger;
@@ -17,9 +19,19 @@ const Steps = (props) => {
 
   return (
     <div>
-      {props.steps && props.steps.map(step => <li key={step.id}>{step.statement} | {step.direction} <button onClick={() => handleDelete(step)}>Delete</button></li>)}
+      {props.steps && props.steps.map(step => <li key={step.id}>
+
+        <Step step={step} />
+        
+
+        <button onClick={() => handleDelete(step)}>Delete</button></li>)}
     </div>
   )
+
+  //{props.steps && props.steps.map(step => <li key={step.id}>{step.statement} | {step.direction} <button onClick={() => handleDelete(step)}>Delete</button></li>)}
+
+
+
 }
 
 export default connect(null, {deleteStep})(Steps)
