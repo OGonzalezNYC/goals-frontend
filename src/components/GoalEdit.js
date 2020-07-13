@@ -40,7 +40,7 @@ class GoalEdit extends React.Component {
       <div>
         <form onSubmit={this.handleSubmit}>
 
-          <label>Update Status of Goal:</label>
+          <label>Update The Status of Goal:</label>
           <input type="text" value={this.state.outcome} onChange={this.handleChange} name="outcome"/>
           <input type="submit"/>
         </form><br></br>

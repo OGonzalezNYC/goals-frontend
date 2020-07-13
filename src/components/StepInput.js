@@ -68,7 +68,7 @@ class StepInput extends React.Component {
         <form onSubmit={this.handleSubmit}>
           <label>Add your latest step:</label>
           <input type="text" name="statement" value={this.state.statement} onChange={this.handleChange}/>
-          <label>    If it wasn't a step forward, it's a step backwards:</label>
+          <label>    And remember, If It Wasn't a Step Forward, It's a Step Backwards:</label>
           <select name="direction" value={this.state.direction} onChange={this.handleChange}>
               <option>forward</option>
               <option>backwards</option>

@@ -22,13 +22,15 @@ const Goal = (props) => {
 
   let goal = props.goals.filter(goal => goal.id == props.match.params.id)[0] //Double "=" instead of triple "=" because one is a string and the other's an integer.  Instead of using filter() (which returns an array) and then needing to use "[0]", would simply using find() be a bit more efficient?
 
-//   const deleteGoal = (goal) => {
-// //debugger;
-//     console.log('Right here', goal.id)
-//     props.deleteGoal(goal.id)
-//     //I need to make the page Redirect to "/goals" here.
-//     <Redirect from="goals/:goal.id" to="goals"/>
-//   }
+  const deleteGoal = (goal) => {
+    //debugger;
+    //console.log('Right here', goal.id)
+    if (goal) {
+    props.deleteGoal(goal.id)
+  } else {
+    alert("This goal has already been deleted.")
+  }
+  }
 
 
   //the first time that the props are coming through, this component does not yet have the GOALS. But it then automatically re-renders, this time in possession of the GOALS; hence, the need for the above ternary. But WHY does this component automatically render twice?
@@ -48,9 +50,16 @@ const Goal = (props) => {
       </h2>
 
       <GoalEdit goal={goal}/>
-
+      <h2>These Are The Steps You Have Taken Towards Or Away From Your Goal:</h2>
       <StepsContainer goal={goal}/>
-
+      <br></br>
+      <br></br>
+      <br></br>
+      <button onClick={() => deleteGoal(goal)}>Delete Goal</button>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
 
     </div>
   )
@@ -64,5 +73,15 @@ const Goal = (props) => {
 
 
 
-export default Goal
-//export default connect(null, {deleteGoal})(Goal)
+//export default Goal
+export default connect(null, {deleteGoal})(Goal)
+
+
+
+// <button onClick={() => deleteGoal(goal)}>Delete Goal</button>
+//
+//   const deleteGoal = (goal) => {
+//     //debugger;
+//     console.log('Right here', goal.id)
+//     props.deleteGoal(goal.id)
+//   }
