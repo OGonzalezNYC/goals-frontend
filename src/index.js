@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 //import './index.css';
+import './App.css';
 
 import {createStore, applyMiddleware, compose} from 'redux';
 //createStore to enable setting up of the store, applyMiddleware to incorporate thunk with the store, and compose to be able to combine several different DEVTOOLS into one, as createStore below can only take one second argument.

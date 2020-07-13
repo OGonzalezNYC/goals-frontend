@@ -19,9 +19,12 @@ const Goals = (props) => {
 //The use of LINK below means that every time someone navigates to the Goal component, it's through the Route, and the Goal component is never being rendered anywhere else, which means that it will always have the routerProps that are being sent in from GoalsContainer.
   return (
     <div>
+      <h1>These Are All Of Your Current Goals:</h1>
       {props.goals.map(goal =>
         <li key={goal.id}>
-          <Link to={`/goals/${goal.id}`}>{goal.mission}</Link><button onClick={() => deleteGoal(goal)}>Delete Goal</button>
+          <Link to={`/goals/${goal.id}`}>{goal.mission}</Link>        <button onClick={() => deleteGoal(goal)}>Delete Goal</button>
+          <br></br>
+          <br></br>
         </li>
       )}
       <br></br>
