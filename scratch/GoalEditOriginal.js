@@ -1,10 +1,9 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {addGoal} from '../actions/addGoal'
-import {Route, Link} from 'react-router-dom';
+import {editGoal} from '../actions/editGoal'
 
 //This component is a form, so it needs to have state, so it needs to be a class.
-class GoalInput extends React.Component {
+class GoalEdit extends React.Component {
   //constructor() can be used, but isn't necessary.
   //You technically aren't supposed to use null for an empty value.
   // state = {mission: '', deadline: Date.now(), outcome: "Get after it!"}
@@ -24,15 +23,13 @@ class GoalInput extends React.Component {
     event.preventDefault()
     //the form data needs to get sent to the backend. The first requirement for that is an ACTION. So there needs to be an ACTION CREATOR here.
 
-    if (this.state.mission !== '') {
-      this.props.addGoal(this.state) //PROBABLY REUSE THIS FORM FOR EDITING GOAL. Add a condition to see whether ADDING or EDITING.
-      this.setState({
-        mission: '',
-        outcome: "Get after it!"
-      })
-    } else {
-      alert("Describe your goal.")
-    }
+    let goal = {...this.state, id: this.props.goal.id}
+
+    this.props.editGoal(goal)
+    this.setState({
+      mission: '',
+      outcome: "Get after it!"
+    })
   }
 
   render() {
@@ -44,28 +41,10 @@ class GoalInput extends React.Component {
           <label>Status:</label><br></br>
           <input type="text" placeholder="outcome" value={this.state.outcome} onChange={this.handleChange} name="outcome"/><br></br><br></br>
           <input type="submit"/>
-        </form>
+        </form><br></br>
       </div>
     )
   }
-  //   <br></br>
-  // <Link to={'/goals'}>Goals</Link>
 }
 
-
-export default connect(null, {addGoal})(GoalInput)
-// render() {
-//   return (
-//     <div>
-//       <form onSubmit={this.handleSubmit}>
-//         <label>Goal:</label><br></br>
-//         <input type="text" placeholder="mission" value={this.state.mission} onChange={this.handleChange} name="mission"/><br></br><br></br>
-//         <label>On or before:</label><br></br>
-//         <input type="text" placeholder="deadline" value={this.state.deadline} onChange={this.handleChange} name="deadline"/><br></br><br></br>
-//         <label>Status:</label><br></br>
-//         <input type="text" placeholder="outcome" value={this.state.outcome} onChange={this.handleChange} name="outcome"/><br></br><br></br>
-//         <input type="submit"/>
-//       </form><br></br>
-//     </div>
-//   )
-// }
+export default connect(null, {editGoal})(GoalEdit)

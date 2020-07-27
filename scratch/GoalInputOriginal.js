@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {addGoal} from '../actions/addGoal'
-import {Route, Link} from 'react-router-dom';
 
 //This component is a form, so it needs to have state, so it needs to be a class.
 class GoalInput extends React.Component {
@@ -23,16 +22,11 @@ class GoalInput extends React.Component {
   handleSubmit = (event) => {
     event.preventDefault()
     //the form data needs to get sent to the backend. The first requirement for that is an ACTION. So there needs to be an ACTION CREATOR here.
-
-    if (this.state.mission !== '') {
-      this.props.addGoal(this.state) //PROBABLY REUSE THIS FORM FOR EDITING GOAL. Add a condition to see whether ADDING or EDITING.
-      this.setState({
-        mission: '',
-        outcome: "Get after it!"
-      })
-    } else {
-      alert("Describe your goal.")
-    }
+    this.props.addGoal(this.state) //PROBABLY REUSE THIS FORM FOR EDITING GOAL. Add a condition to see whether ADDING or EDITING.
+    this.setState({
+      mission: '',
+      outcome: "Get after it!"
+    })
   }
 
   render() {
@@ -44,14 +38,11 @@ class GoalInput extends React.Component {
           <label>Status:</label><br></br>
           <input type="text" placeholder="outcome" value={this.state.outcome} onChange={this.handleChange} name="outcome"/><br></br><br></br>
           <input type="submit"/>
-        </form>
+        </form><br></br>
       </div>
     )
   }
-  //   <br></br>
-  // <Link to={'/goals'}>Goals</Link>
 }
-
 
 export default connect(null, {addGoal})(GoalInput)
 // render() {
