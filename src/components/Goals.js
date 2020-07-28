@@ -33,4 +33,3 @@ const Goals = (props) => {
 }
 
 export default connect(null, {deleteGoal})(Goals)
-//id={goal.id}

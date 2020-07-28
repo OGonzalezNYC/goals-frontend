@@ -8,7 +8,9 @@ class VoteCount extends React.Component {
   }
 
   vote = () => {
-    this.setState({votes: this.state.votes += 1})
+    // let x = this.state.votes
+    // this.setState({votes: x + 1})
+    this.setState((previousState, previousProps) => ({votes: previousState.votes += 1}))
   }
 
   render() {
@@ -26,4 +28,3 @@ class VoteCount extends React.Component {
   }
 }
 export default VoteCount
-//key={this.props.id}
