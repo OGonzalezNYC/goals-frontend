@@ -1,7 +1,5 @@
 import React from 'react';
 
-//import {Redirect} from 'react-router-dom'; //As I suspected, this line is unnecessary.
-
 const Step = ({step, deleteStep}) => {
 
   return (
@@ -9,8 +7,5 @@ const Step = ({step, deleteStep}) => {
   )
 
 }
-
-
-// <div key={step.id}>STEP: {step.statement}  DIRECTION: {step.direction} </div>
 
 export default Step

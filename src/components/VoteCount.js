@@ -1,7 +1,5 @@
 import React from 'react';
 
-//import {Redirect} from 'react-router-dom'; //As I suspected, this line is unnecessary.
-
 class VoteCount extends React.Component {
 
   constructor(props) {
@@ -27,8 +25,4 @@ class VoteCount extends React.Component {
     )
   }
 }
-
-
-// <div key={step.id}>STEP: {step.statement}  DIRECTION: {step.direction} </div>
-
 export default VoteCount

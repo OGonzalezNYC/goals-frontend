@@ -1,5 +1,5 @@
 export const deleteStep = (id, goalId) => {
-  console.log('INSIDE deleteStep', id, goalId)
+  
   return (dispatch) => {
     fetch(`http://localhost:3000/api/v1/goals/${goalId}/steps/${id}`, {
       method: 'DELETE'
