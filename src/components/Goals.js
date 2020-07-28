@@ -10,17 +10,21 @@ class Goals extends React.Component {
 //const Goals = (props) => {
   constructor(props) {
     super(props);
-    this.state = {goals: this.props.goals}
-  }
+// console.log('Line 13', this.props)
+//     let goalIdKeysAndVotesValues = {}
+// console.log('Line 15', goalIdKeysAndVotesValues, this.props.goals)
+//     this.props.goals.map(goal => goalIdKeysAndVotesValues[5] = 0);
+// console.log('Line 17', goalIdKeysAndVotesValues)
+//     this.state = goalIdKeysAndVotesValues //Sole key should be goal.id, and the sole value should be votes.
+// console.log('Line 19', this.state)
+    console.log('This is this.props.goals: ', this.props.goals)
+    this.state = {goals: this.props.goals }
+    this.state.goalsToVotes = []
+    this.state.goals.map(goal => this.state.goalsToVotes[goal.id] = 0);
+    console.log('This is state: ', this.state)
 
-  componentDidMount() {
-    setTimeout(function(){ alert('Okay'); }, 3000);
-    //console.log('INSIDE COMPONENTDIDMOUNT', this.state)
-    let goalsWithVotesAttribute = this.state.goals.map(goal => goal.setAttribute('votes', 0))
-    console.log(goalsWithVotesAttribute)
-    //this.setState(...state, )
   }
-
+// `goalId_${goal.id}`
   render() {
 
 
