@@ -23,6 +23,7 @@ const Goals = (props) => {
           <button onClick={() => deleteGoal(goal)}>Delete Goal</button>
           <br></br>
           <br></br>
+          <br></br>
         </li>
       )}
       <br></br>
