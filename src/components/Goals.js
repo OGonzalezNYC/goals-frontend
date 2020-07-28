@@ -18,7 +18,7 @@ const Goals = (props) => {
         <li key={goal.id}>
           <Link to={`/goals/${goal.id}`}>{goal.mission}</Link>
           <div>
-            <VoteCount initialValue={0} id={goal.id}/>
+            <VoteCount />
           </div>
           <button onClick={() => deleteGoal(goal)}>Delete Goal</button>
           <br></br>
@@ -33,3 +33,4 @@ const Goals = (props) => {
 }
 
 export default connect(null, {deleteGoal})(Goals)
+//id={goal.id}

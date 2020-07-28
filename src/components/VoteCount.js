@@ -13,7 +13,7 @@ class VoteCount extends React.Component {
 
   render() {
     return (
-      <div key={this.props.id}>
+      <div>
         VOTES: {this.state.votes}
         <br></br>
         <button onClick={this.vote}>
@@ -26,3 +26,4 @@ class VoteCount extends React.Component {
   }
 }
 export default VoteCount
+//key={this.props.id}
