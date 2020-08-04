@@ -8,9 +8,9 @@ class VoteCount extends React.Component {
   }
 
   vote = () => {
-    // let x = this.state.votes
-    // this.setState({votes: x + 1})
-    this.setState((previousState, previousProps) => ({votes: previousState.votes += 1}))
+    this.setState((s) => {
+      return {votes: s.votes + 1}
+    });
   }
 
   render() {
