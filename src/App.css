@@ -28,9 +28,11 @@ body {
   font-family: Arial;
   /* font-family: Helvetica; */
 
-  font-weight: 300;
+  /* font-weight: 300; */
+  font-weight: 301;
 
-  line-height: 1.6em;
+  /* line-height: 1.6em; */
+  line-height: 1.5em;
 
   text-align: center;
 }
