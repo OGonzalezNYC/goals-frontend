@@ -1,0 +1,47 @@
+/* body {
+  background-color: #282c00;
+  color: white;
+  padding: 50px;
+  font-family: Arial;
+  text-align: center;
+} */
+
+
+
+
+/* body {
+  background-color: #282c34;
+  color: white;
+  padding: 40px;
+  font-family: Arial;
+  text-align: center;
+} */
+
+
+body {
+  background-color: black;
+  /* color: white; */
+  /* color: yellow; */
+
+  padding: 50px;
+  /* padding: 51px; */
+
+  /* font-family: Arial; */
+  font-family: Helvetica;
+
+  font-weight: 300;
+  /* font-weight: 301; */
+
+  /* line-height: 1.6em; */
+  line-height: 1.5em;
+
+  /* text-align: center; */
+  text-align: left;
+}
+
+a {
+  color: red;
+  /* font-family: Arial; */
+  font-family: Helvetica;
+
+}
