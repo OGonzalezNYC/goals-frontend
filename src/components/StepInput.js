@@ -48,11 +48,17 @@ class StepInput extends React.Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    this.props.addStep(this.state, this.props.goal.id)//this.props.id is the GOAL id (or is it the goalId ?).
-    this.setState({
-      statement: "",
-      direction: "backwards"
-    })
+
+      if (this.state.statement) {
+
+      this.props.addStep(this.state, this.props.goal.id)//this.props.id is the GOAL id (or is it the goalId ?).
+      this.setState({
+        statement: "",
+        direction: "backwards"
+      })
+    } else {
+        alert("Describe the latest step that you took, and its direction.")
+    }
   }
 
 
@@ -60,15 +66,16 @@ class StepInput extends React.Component {
     return (
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label>Step:</label>
+          <label>Add your latest step:</label>
           <input type="text" name="statement" value={this.state.statement} onChange={this.handleChange}/>
-          <label>Direction:</label>
+          <label>    And remember, If It Wasn't a Step Forward, It's a Step Backwards:</label>
           <select name="direction" value={this.state.direction} onChange={this.handleChange}>
               <option>forward</option>
               <option>backwards</option>
           </select>
           <input type="submit"/>
         </form>
+        <br></br>
       </div>
     )
   }

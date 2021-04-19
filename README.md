@@ -1,3 +1,6 @@
+The URL for the backend is: https://github.com/OGonzalezNYC/goals-backend
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
