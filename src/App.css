@@ -36,8 +36,8 @@ body {
   line-height: 1.6em;
   /* line-height: 1.5em; */
 
-  text-align: center;
-  /* text-align: left; */
+  /* text-align: center; */
+  text-align: left;
 }
 
 a {
