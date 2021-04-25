@@ -41,7 +41,8 @@ body {
 }
 
 a {
-  color: red;
+  /* color: red; */
+  color: orange;
   /* font-family: Arial; */
   font-family: Helvetica;
 
